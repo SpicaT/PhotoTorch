@@ -207,11 +207,11 @@ static void positionBtn(CAMTopBar *topBar) {
 
 static void createListButton(CAMTopBar *topBar) {
     if (isiOS11Up) {
-        btn = (CUShutterButton *)[%c(CUShutterButton) smallShutterButtonWithLayoutStyle:1];
+        btn = [NSClassFromString(@"CUShutterButton") smallShutterButtonWithLayoutStyle:1];
         btn.transform = CGAffineTransformMakeScale(0.52, 0.52);
         btnSize = [btn intrinsicContentSize].width * 0.52;
     } else {
-        btn = (CUShutterButton *)[%c(CUShutterButton) tinyShutterButtonWithLayoutStyle:1];
+        btn = [NSClassFromString(@"CUShutterButton") tinyShutterButtonWithLayoutStyle:1];
         btnSize = [btn intrinsicContentSize].width;
     }
     MSHookIvar<UIView *>(btn, "__innerView").backgroundColor = UIColor.systemYellowColor;
